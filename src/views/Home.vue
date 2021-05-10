@@ -1,18 +1,37 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div v-if="done">
+        <ul>
+            <li v-for="(fav,idx) in favorites" :key="idx" class="item">
+                <WeatherCard :weather="fav"/>
+            </li>
+        </ul>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import WeatherCard from "../components/WeatherCard";
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
+    name: 'Home',
+    components:{
+        WeatherCard
+    },
+    data(){
+        return{
+            done: false
+        }
+    },
+    created(){
+        this.$store.commit("updateWeather",{});
+        this.$store.dispatch("updateFavorites").then(() => this.done=true);
+        //this.done=true;
+    },
+    computed: {
+        favorites(){
+            return this.$store.state.favorites;
+        }
+    }
 }
 </script>
+<style scoped>
+</style>
