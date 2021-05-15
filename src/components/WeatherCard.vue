@@ -1,16 +1,20 @@
 <template>
-    <div>
-        <img v-if="icon=='snow'" class="icon" src="../assets/snowIcon.png">
-        <img v-else-if="icon=='clear'" class="icon" src="../assets/clearIcon.png">
-        <img v-else-if="icon=='rain'" class="icon" src="../assets/rainIcon.png">
-        <img v-else class="icon" src="../assets/cloudsIcon.png">
+    <div class="cardcontainer">
         <div @click="details()" class="card">
-            {{weather.name}}, {{weather.sys.country}}
-            <br>
-            {{weather.weather[0].main}} | {{(weather.main.temp-273.15).toFixed(1)}}°C
+            <div class="cityname">
+                {{weather.name}}, {{weather.sys.country}}
+            </div>
+            <div>
+                <img v-if="icon=='snow'" class="icon" src="../assets/snowIcon.png">
+                <img v-else-if="icon=='clear'" class="icon" src="../assets/clearIcon.png">
+                <img v-else-if="icon=='rain'" class="icon" src="../assets/rainIcon.png">
+                <img v-else class="icon" src="../assets/cloudsIcon.png">
+            </div>
+            <div>
+                {{(weather.main.temp-273.15).toFixed(1)}}°C
+            </div>
         </div>
         <img class="remove" @click="remove()" src="../assets/close.png">
-        <img>
     </div>
 </template>
 
@@ -51,6 +55,16 @@ export default {
 </script>
 
 <style scoped>
+.cityname{
+    flex-grow: 1;
+}
+
+.cardcontainer{
+    display:flex;
+    place-items: center;
+    justify-content: center;
+}
+
 .icon{
     height:40px;
     margin-right: 10px;
@@ -71,19 +85,15 @@ export default {
     cursor:pointer
 }
 
-div{
-    text-align: center;
-}
-
 .card{
-    display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
+    place-items: center;
     font-size: 28px;
     font-weight: bold;
-    width:300px;
-    height:60px;
+    width:350px;
+    padding:15px;
     margin-top: 10px;
-    padding-top:2px;
-    padding-bottom: 10px;
     background: rgba(255, 255, 255, 0.4);
     border-radius: 50px;
     transition: .5s;
@@ -91,7 +101,7 @@ div{
 
 .card:hover{
     background-color: rgba(255,255,255,.8);
-    width:350px;
+    width:400px;
     cursor: pointer;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div v-if="done">
         <ul>
-            <li v-for="(fav,idx) in favorites" :key="idx" class="item">
+            <li v-for="(fav,idx) in favorites" :key="idx">
                 <WeatherCard :weather="fav"/>
             </li>
         </ul>
