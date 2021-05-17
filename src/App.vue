@@ -1,6 +1,6 @@
 <template>
   <div id="myapp" :style="{ backgroundImage: 'url(' + background + ')' }">
-    <main :class="{ dim: nightTime}">
+    <main :class="{ dim: nightTime, home: isHome}">
       <SearchBar></SearchBar>
       <router-view/>
     </main>
@@ -27,7 +27,11 @@ export default {
       }else{
         return true;
       }
-    },background(){
+    },
+    isHome(){
+      return this.weather.main==undefined;
+    }
+    ,background(){
       if(this.weather.main==undefined){
         return "https://i.pinimg.com/originals/50/50/34/505034934eb44b4721e732a1bd3bfe65.png";
       }else if(this.weather.main.temp-273.15<=0){
@@ -67,7 +71,10 @@ main{
 }
 
 .dim{
-  height:100vh;
-  background: linear-gradient(to bottom,rgba(0,0,0,0.7),rgba(0,0,0,0.7));
+  background: linear-gradient(to bottom,rgba(0,0,0,0.75),rgba(0,0,0,0.75));
+}
+
+.home{
+  background: linear-gradient(to bottom,rgba(0,0,0,0.5),rgba(0,0,0,0.5));
 }
 </style>
