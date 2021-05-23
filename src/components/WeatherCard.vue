@@ -55,16 +55,6 @@ export default {
 </script>
 
 <style scoped>
-.cityname{
-    flex-grow: 1;
-}
-
-.cardcontainer{
-    display:flex;
-    place-items: center;
-    justify-content: center;
-}
-
 .icon{
     height:40px;
     margin-right: 10px;
@@ -85,10 +75,21 @@ export default {
     cursor:pointer
 }
 
+.cardcontainer{
+    display:flex;
+    justify-content: center;
+    place-items: center;
+    flex-wrap: wrap;
+}
+
+.cityname{
+    flex-grow: 1;
+}
+
 .card{
     display: flex;
-    flex-wrap: wrap;
     place-items: center;
+    flex-wrap: wrap;
     font-size: 28px;
     font-weight: bold;
     width:350px;
