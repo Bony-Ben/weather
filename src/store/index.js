@@ -43,7 +43,7 @@ export default new Vuex.Store({
       commit('updateFavorites',state.favorites.filter((fav) => fav.name !=weather.name));
     },
     updateNthFavorite({commit},{n,loc}){
-      axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=d9a18e97e763677d7a265e33a139bc2a`)
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=d9a18e97e763677d7a265e33a139bc2a`)
       .then((result) => commit('updateNthFavorite',{n: n,weather: result.data}))
     },
     updateFavorites({state, dispatch}){
@@ -51,7 +51,5 @@ export default new Vuex.Store({
         dispatch('updateNthFavorite',{n: i,loc: state.favorites[i].name});
       }
     }
-  },
-  modules: {
   }
 })
