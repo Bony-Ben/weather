@@ -30,7 +30,7 @@ export default {
             if(this.$route.name=="Weather"){
                 this.$store.dispatch("updateWeather",this.text);
             }
-            this.$router.push("/weather/"+this.text).catch(()=> console.log("Double Route."));
+            this.$router.push(`/weather/${this.text}`).catch(()=> console.log("Double Route."));
           }
       }
   }

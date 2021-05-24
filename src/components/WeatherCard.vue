@@ -30,7 +30,7 @@ export default {
   },
   methods:{
     details(){
-        this.$router.push("/weather/"+this.weather.name);
+        this.$router.push(`/weather/${this.weather.name}`);
     },
     remove(){
         this.$store.dispatch('removeFavorite',this.weather);
