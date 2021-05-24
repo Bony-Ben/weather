@@ -26,7 +26,7 @@ export default new Vuex.Store({
   },
   actions: {
     updateWeather({commit}, loc){
-      axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=d9a18e97e763677d7a265e33a139bc2a`)
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${loc}&appid=d9a18e97e763677d7a265e33a139bc2a`)
       .then((result) => commit('updateWeather',result.data))
       .catch(function (){
         commit('updateWeather',{});
