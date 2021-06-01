@@ -14,6 +14,9 @@ export default {
   components: {
     SearchBar,
   },
+  created() {
+    setInterval(() => this.$store.dispatch("updateFavorites"), 5 * 60 * 1000);
+  },
   computed: {
     weather() {
       return this.$store.state.weather;

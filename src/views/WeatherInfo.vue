@@ -45,11 +45,20 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      timerId: null,
+    };
+  },
   created() {
-    setInterval(
+    this.$store.dispatch("updateWeather", this.city);
+    this.timerId = setInterval(
       () => this.$store.dispatch("updateWeather", this.city),
       60 * 1000
     );
+  },
+  destroyed() {
+    clearInterval(this.timerId);
   },
   methods: {
     home() {

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="done">
+  <div>
     <ul>
       <li v-for="(fav, idx) in favorites" :key="idx">
         <WeatherCard :weather="fav" />
@@ -16,15 +16,8 @@ export default {
   components: {
     WeatherCard,
   },
-  data() {
-    return {
-      done: false,
-    };
-  },
   created() {
     this.$store.commit("updateWeather", {});
-    this.$store.dispatch("updateFavorites").then(() => (this.done = true));
-    //this.done=true;
   },
   computed: {
     favorites() {
