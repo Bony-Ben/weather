@@ -1,26 +1,26 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import WeatherInfo from '../views/WeatherInfo.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import Home from "../views/Home.vue";
+import WeatherInfo from "../views/WeatherInfo.vue";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: "/",
+    name: "Home",
+    component: Home,
   },
   {
-    path: '/weather/:city',
-    name: 'Weather',
+    path: "/weather/:city",
+    name: "Weather",
     component: WeatherInfo,
-    props: true
-  }
-]
+    props: true,
+  },
+];
 
 const router = new VueRouter({
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
