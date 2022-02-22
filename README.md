@@ -1,5 +1,7 @@
 # weather
 
+Deployed at https://bony-weather.netlify.app
+
 ## Project setup
 ```
 npm install
